@@ -1,8 +1,16 @@
 import flet as ft
+from Views.ViewLogin import ViewLogin
+
 
 class ViewInicio():
     def __init__(self,page: ft.Page):
         self.page = page
+
+    def changeView(self,e):
+        ventana = ViewLogin(self.page)
+        self.page.views.append(ventana.getViewLogin())
+        self.page.update()
+        
 
     def getViewInicio(self):
         personal_icon = ft.Image(src="img/logoBoton.png",height=38)
@@ -43,7 +51,7 @@ class ViewInicio():
                                 [ft.Container(content=familiar_text,alignment=ft.alignment.center),
                                 ft.Container(
                                     content=familiar_icon,
-                                    on_click=lambda _: print("Familiar seleccionado"),
+                                    on_click=self.changeView,
                                     height=40,
                                     padding=0,
                                     alignment=ft.alignment.center

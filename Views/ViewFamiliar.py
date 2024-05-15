@@ -12,68 +12,35 @@ class ViewFamiliar():
                                            padding=10,
                                            border_radius=15,
                                            width=200,
-                                           bgcolor=ft.colors.WHITE)
+                                           bgcolor=ft.colors.WHITE,
+                                           expand=True)
         
-        userImg=ft.Image(
-            src="img/loginUser.png",
-            height=45,
-            width=45
-
+        localizacionImg=ft.Image(
+            src="img/Localizacion.png",
+            height=100,
+            width=100
         )
-        passImg = ft.Image(
-            src="img/loginPass.png",
-            height=45,
-            width=45
-
-        )
-
-
-        username = ft.TextField(
-            label="Usuario",
-            helper_text="Ingrese su nombre de usuario",
-            border_radius=ft.BorderRadius(5, 5, 5, 5),
-            width=200,
-            color=ft.colors.WHITE
+        
+        localizacion = ft.Container(
+            content=localizacionImg,
+            height=100,
+            width=100,
+            padding=0
         )
 
-        # Campo de contraseña
-        password = ft.TextField(
-            label="Contraseña",
-            helper_text="Ingrese su contraseña",
-            password=True,
-            can_reveal_password=True,
-            border_radius=ft.BorderRadius(5, 5, 5, 5),
-            width=200,
-            color=ft.colors.WHITE
+        RegistroImg=ft.Image(
+            src="img/registro.png",
+            height=100,
+            width=100
+        )
+        
+        Registro = ft.Container(
+            content=RegistroImg,
+            height=100,
+            width=100,
+            padding=0
         )
 
-        # Botón de iniciar sesión
-        login_button = ft.ElevatedButton(
-            text="Iniciar Sesión",
-            on_click=lambda _: print("Usuario:", username.value, "Contraseña:", password.value),
-            style=ft.ButtonStyle(
-                shape=ft.RoundedRectangleBorder(radius=5),
-                color=ft.colors.BLUE,     
-            ),
-            width=200
-        )
-
-        user = ft.Row(
-            controls=[
-                userImg,
-                username
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            vertical_alignment=ft.CrossAxisAlignment.CENTER,
-        )
-        passw = ft.Row(
-            controls=[
-                passImg,
-                password,
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            vertical_alignment=ft.CrossAxisAlignment.CENTER,
-        )
         content =  ft.Column(
             [ft.Container(height=5),
                 ft.Column(controls=[
@@ -86,7 +53,8 @@ class ViewFamiliar():
             width=35),iniciarText
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
-                vertical_alignment=ft.CrossAxisAlignment.CENTER),
+                vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                width=250),
                 
                 
             ], horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -99,35 +67,35 @@ class ViewFamiliar():
                     [
                         ft.Column(
                                 [
-                               user
-
+                               localizacion,
+                               ft.Text(value="Localizacion",color=ft.colors.WHITE)
                                 ],
                                 spacing=0,
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                
                             ),
                         
-                        ft.Container(width=50),
+                        ft.Container(width=10, padding=0),
                         ft.Column(
                                 [
-                                passw,
-                                login_button
-                                
+                                Registro,
+                                ft.Text(value="registro",color=ft.colors.WHITE)
                                 ],
                                alignment=ft.MainAxisAlignment.CENTER,
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                             )
                         
                     ],
-                    #spacing=50,
+                    spacing=10,
                     alignment=ft.MainAxisAlignment.START,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.START,
                     expand=True
                 
                 ),
 
             ],
-            spacing=80,
+            spacing=40,
             alignment=ft.MainAxisAlignment.CENTER,
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             expand=True,
